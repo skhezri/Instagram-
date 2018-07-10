@@ -36,6 +36,9 @@
     self.tableView.dataSource=self;
     self.postArr=[[NSArray alloc]init];
     [self fetchUserPosts];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
     
     self.tableView.rowHeight = 351;
 }
@@ -85,11 +88,17 @@
         }
         
     }];
-    
-    
 }
 
-
-
+// Makes a network request to get updated data
+// Updates the tableView with the new data
+// Hides the RefreshControl
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    //fetch the new posts
+    [self fetchUserPosts];
+    //tell refreshControl to stop spinning
+    [refreshControl endRefreshing];
+}
+    
 
 @end
