@@ -10,8 +10,10 @@
 		0E8C75FB9C431F7FE8816920 /* libPods-InstagramTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B06C62E5C3AF9EF12BA90A /* libPods-InstagramTests.a */; };
 		77199BB7A85C452543991661 /* libPods-InstagramUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6ECBCA9E8B387238DB1B00 /* libPods-InstagramUITests.a */; };
 		C69EC8B4E05205192AC988C8 /* libPods-Instagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA96E4C0B678771DF3CD08A0 /* libPods-Instagram.a */; };
+		FC3C0D6420F4195E0082AF55 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D6320F4195E0082AF55 /* LoginViewController.m */; };
+		FC3C0D6720F4201D0082AF55 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D6620F4201D0082AF55 /* FeedViewController.m */; };
+		FC3C0D6D20F433C50082AF55 /* ComposePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D6C20F433C50082AF55 /* ComposePhotoViewController.m */; };
 		FCF6D2FB20F4141500198038 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D2FA20F4141500198038 /* AppDelegate.m */; };
-		FCF6D2FE20F4141500198038 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D2FD20F4141500198038 /* ViewController.m */; };
 		FCF6D30120F4141500198038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D2FF20F4141500198038 /* Main.storyboard */; };
 		FCF6D30320F4141500198038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D30220F4141500198038 /* Assets.xcassets */; };
 		FCF6D30620F4141500198038 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D30420F4141500198038 /* LaunchScreen.storyboard */; };
@@ -46,11 +48,15 @@
 		A27B6555A2E5B2F0236D13FE /* Pods-InstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramUITests/Pods-InstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA96E4C0B678771DF3CD08A0 /* libPods-Instagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Instagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F75C8926DA6AE1D6BBF94230 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
+		FC3C0D6220F4195E0082AF55 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		FC3C0D6320F4195E0082AF55 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		FC3C0D6520F4201D0082AF55 /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		FC3C0D6620F4201D0082AF55 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		FC3C0D6B20F433C50082AF55 /* ComposePhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePhotoViewController.h; sourceTree = "<group>"; };
+		FC3C0D6C20F433C50082AF55 /* ComposePhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePhotoViewController.m; sourceTree = "<group>"; };
 		FCF6D2F620F4141500198038 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF6D2F920F4141500198038 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FCF6D2FA20F4141500198038 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FCF6D2FC20F4141500198038 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FCF6D2FD20F4141500198038 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FCF6D30020F4141500198038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCF6D30220F4141500198038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCF6D30520F4141500198038 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,14 +148,18 @@
 			isa = PBXGroup;
 			children = (
 				FCF6D2F920F4141500198038 /* AppDelegate.h */,
+				FC3C0D6220F4195E0082AF55 /* LoginViewController.h */,
+				FC3C0D6320F4195E0082AF55 /* LoginViewController.m */,
 				FCF6D2FA20F4141500198038 /* AppDelegate.m */,
-				FCF6D2FC20F4141500198038 /* ViewController.h */,
-				FCF6D2FD20F4141500198038 /* ViewController.m */,
 				FCF6D2FF20F4141500198038 /* Main.storyboard */,
 				FCF6D30220F4141500198038 /* Assets.xcassets */,
 				FCF6D30420F4141500198038 /* LaunchScreen.storyboard */,
 				FCF6D30720F4141500198038 /* Info.plist */,
 				FCF6D30820F4141600198038 /* main.m */,
+				FC3C0D6520F4201D0082AF55 /* FeedViewController.h */,
+				FC3C0D6620F4201D0082AF55 /* FeedViewController.m */,
+				FC3C0D6B20F433C50082AF55 /* ComposePhotoViewController.h */,
+				FC3C0D6C20F433C50082AF55 /* ComposePhotoViewController.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -381,9 +391,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCF6D2FE20F4141500198038 /* ViewController.m in Sources */,
+				FC3C0D6420F4195E0082AF55 /* LoginViewController.m in Sources */,
 				FCF6D30920F4141600198038 /* main.m in Sources */,
+				FC3C0D6720F4201D0082AF55 /* FeedViewController.m in Sources */,
 				FCF6D2FB20F4141500198038 /* AppDelegate.m in Sources */,
+				FC3C0D6D20F433C50082AF55 /* ComposePhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
