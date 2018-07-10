@@ -9,8 +9,13 @@
 #import "FeedViewController.h"
 #import "Parse.h"
 #import "LoginViewController.h"
+#import "FeedViewController.h"
+#import "PostCell.h"
+#import "Post.h"
 
-@interface FeedViewController ()
+@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray * postArr;
 
 @end
 
@@ -27,12 +32,16 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
+    self.postArr=[[NSArray alloc]init];
+    [self fetchUserPosts];
+    
+    self.tableView.rowHeight = 351;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -44,5 +53,43 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PostCell *cell= [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+    Post * post=self.postArr[indexPath.row];
+    cell.post=post;
+    [cell setPost:post];
+
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.postArr.count; 
+}
+
+
+-(void) fetchUserPosts{
+    PFQuery * query=[PFQuery queryWithClassName:@"Post"];
+    query.limit=20;
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"image"];
+    [query includeKey: @"author"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * instaPosts, NSError * error){
+        if(instaPosts!=nil){
+            self.postArr=instaPosts;
+            [self.tableView reloadData];
+        } else{
+            NSLog(@"%@", error.localizedDescription);
+            
+        }
+        
+    }];
+    
+    
+}
+
+
+
 
 @end

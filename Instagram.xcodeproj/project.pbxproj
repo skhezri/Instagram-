@@ -13,6 +13,8 @@
 		FC3C0D6420F4195E0082AF55 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D6320F4195E0082AF55 /* LoginViewController.m */; };
 		FC3C0D6720F4201D0082AF55 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D6620F4201D0082AF55 /* FeedViewController.m */; };
 		FC3C0D6D20F433C50082AF55 /* ComposePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D6C20F433C50082AF55 /* ComposePhotoViewController.m */; };
+		FC3C0D7020F5250F0082AF55 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D6F20F5250F0082AF55 /* Post.m */; };
+		FC3C0D7320F52D0F0082AF55 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D7220F52D0F0082AF55 /* PostCell.m */; };
 		FCF6D2FB20F4141500198038 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D2FA20F4141500198038 /* AppDelegate.m */; };
 		FCF6D30120F4141500198038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D2FF20F4141500198038 /* Main.storyboard */; };
 		FCF6D30320F4141500198038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D30220F4141500198038 /* Assets.xcassets */; };
@@ -54,6 +56,10 @@
 		FC3C0D6620F4201D0082AF55 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		FC3C0D6B20F433C50082AF55 /* ComposePhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePhotoViewController.h; sourceTree = "<group>"; };
 		FC3C0D6C20F433C50082AF55 /* ComposePhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePhotoViewController.m; sourceTree = "<group>"; };
+		FC3C0D6E20F5250F0082AF55 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		FC3C0D6F20F5250F0082AF55 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		FC3C0D7120F52D0F0082AF55 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		FC3C0D7220F52D0F0082AF55 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		FCF6D2F620F4141500198038 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF6D2F920F4141500198038 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FCF6D2FA20F4141500198038 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -152,6 +158,8 @@
 				FC3C0D6320F4195E0082AF55 /* LoginViewController.m */,
 				FCF6D2FA20F4141500198038 /* AppDelegate.m */,
 				FCF6D2FF20F4141500198038 /* Main.storyboard */,
+				FC3C0D7120F52D0F0082AF55 /* PostCell.h */,
+				FC3C0D7220F52D0F0082AF55 /* PostCell.m */,
 				FCF6D30220F4141500198038 /* Assets.xcassets */,
 				FCF6D30420F4141500198038 /* LaunchScreen.storyboard */,
 				FCF6D30720F4141500198038 /* Info.plist */,
@@ -160,6 +168,8 @@
 				FC3C0D6620F4201D0082AF55 /* FeedViewController.m */,
 				FC3C0D6B20F433C50082AF55 /* ComposePhotoViewController.h */,
 				FC3C0D6C20F433C50082AF55 /* ComposePhotoViewController.m */,
+				FC3C0D6E20F5250F0082AF55 /* Post.h */,
+				FC3C0D6F20F5250F0082AF55 /* Post.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -374,10 +384,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Instagram/Pods-Instagram-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -392,8 +408,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC3C0D6420F4195E0082AF55 /* LoginViewController.m in Sources */,
+				FC3C0D7020F5250F0082AF55 /* Post.m in Sources */,
 				FCF6D30920F4141600198038 /* main.m in Sources */,
 				FC3C0D6720F4201D0082AF55 /* FeedViewController.m in Sources */,
+				FC3C0D7320F52D0F0082AF55 /* PostCell.m in Sources */,
 				FCF6D2FB20F4141500198038 /* AppDelegate.m in Sources */,
 				FC3C0D6D20F433C50082AF55 /* ComposePhotoViewController.m in Sources */,
 			);

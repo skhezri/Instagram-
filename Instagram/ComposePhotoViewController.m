@@ -7,10 +7,12 @@
 //
 
 #import "ComposePhotoViewController.h"
+#import "Post.h"
 
 @interface ComposePhotoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *chosenImage;
 @property (weak, nonatomic) IBOutlet UITextField *imageCaptionText;
+@property (weak, nonatomic) NSString * captionText;
 @end
 
 @implementation ComposePhotoViewController
@@ -28,6 +30,16 @@
      [self performSegueWithIdentifier:@"cancelComposeSegue" sender:nil];
 }
 - (IBAction)didTapShareButton:(id)sender {
+    self.captionText=self.imageCaptionText.text;
+    [Post postUserImage:self.chosenImage.image withCaption:self.captionText withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded){
+            NSLog(@"Shared Successfully");
+        } else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    
+    [self performSegueWithIdentifier:@"shareSegue" sender:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,11 +51,10 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
-    // Do something with the images (based on your use case)
-    
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+    editedImage=[self resizeImage:editedImage withSize:CGSizeMake(350, 350)];
+    [self.chosenImage setImage:editedImage];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
