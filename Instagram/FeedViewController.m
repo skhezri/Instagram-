@@ -12,6 +12,7 @@
 #import "FeedViewController.h"
 #import "PostCell.h"
 #import "Post.h"
+#import "DetailsViewController.h"
 
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -28,7 +29,7 @@
     
 }
 - (IBAction)didTapCameraButton:(id)sender {
-    [self performSegueWithIdentifier:@"composePhotoSegue" sender:nil];
+    [self performSegueWithIdentifier:@"composeSegue" sender:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,15 +48,26 @@
     [super didReceiveMemoryWarning];
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+//In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"detailsSegue"]){
+        UITableViewCell * tappedCell =sender;
+        NSIndexPath *indexPath= [self.tableView indexPathForCell:tappedCell];
+        Post* singlePost= self.postArr[indexPath.row];
+        DetailsViewController * detailsViewController=[segue destinationViewController];
+        detailsViewController.post=singlePost;
+        
+        
+        
+    }
+    
 }
-*/
+
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCell *cell= [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
@@ -71,12 +83,13 @@
 }
 
 
--(void) fetchUserPosts{
+-(void)fetchUserPosts{
     PFQuery * query=[PFQuery queryWithClassName:@"Post"];
     query.limit=20;
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"image"];
     [query includeKey: @"author"];
+    [query includeKey: @"createdAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray * instaPosts, NSError * error){
         if(instaPosts!=nil){

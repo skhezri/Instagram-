@@ -55,7 +55,7 @@
     
 }
 
--(void) alert: (NSString *)user checkPassword:(NSString* )password{
+-(void)alert: (NSString *)user checkPassword:(NSString* )password{
     UIAlertController *alert;
     
     //assign alert variable and text based on the error

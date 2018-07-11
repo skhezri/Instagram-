@@ -22,7 +22,7 @@
     // Configure the view for the selected state
 }
 
--(void) setPost:(Post *)post{
+-(void)setPost:(Post *)post{
     _post=post;
     self.usernameLabel.text=post.author.username;
     self.captionLabel.text=post.caption;
