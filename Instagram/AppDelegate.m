@@ -20,12 +20,13 @@
     ParseClientConfiguration *configuration = [ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         configuration.applicationId = @"APP_ID";
         configuration.server = @"https://instagramsophia.herokuapp.com/parse";
+        
     }];
     [Parse initializeWithConfiguration:configuration];
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
-        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     }
     return YES;
 }

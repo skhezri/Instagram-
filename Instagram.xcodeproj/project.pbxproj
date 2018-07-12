@@ -16,6 +16,8 @@
 		FC3C0D7020F5250F0082AF55 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D6F20F5250F0082AF55 /* Post.m */; };
 		FC3C0D7320F52D0F0082AF55 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D7220F52D0F0082AF55 /* PostCell.m */; };
 		FC3C0D7620F566110082AF55 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D7520F566110082AF55 /* DetailsViewController.m */; };
+		FC3C0D7920F5CF320082AF55 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D7820F5CF320082AF55 /* ProfileViewController.m */; };
+		FC3C0D8120F6A6E70082AF55 /* ProfileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3C0D8020F6A6E70082AF55 /* ProfileCollectionViewCell.m */; };
 		FCF6D2FB20F4141500198038 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D2FA20F4141500198038 /* AppDelegate.m */; };
 		FCF6D30120F4141500198038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D2FF20F4141500198038 /* Main.storyboard */; };
 		FCF6D30320F4141500198038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D30220F4141500198038 /* Assets.xcassets */; };
@@ -63,6 +65,10 @@
 		FC3C0D7220F52D0F0082AF55 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		FC3C0D7420F566110082AF55 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		FC3C0D7520F566110082AF55 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		FC3C0D7720F5CF320082AF55 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		FC3C0D7820F5CF320082AF55 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		FC3C0D7F20F6A6E70082AF55 /* ProfileCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileCollectionViewCell.h; sourceTree = "<group>"; };
+		FC3C0D8020F6A6E70082AF55 /* ProfileCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCollectionViewCell.m; sourceTree = "<group>"; };
 		FCF6D2F620F4141500198038 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF6D2F920F4141500198038 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FCF6D2FA20F4141500198038 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -161,6 +167,10 @@
 				FC3C0D6320F4195E0082AF55 /* LoginViewController.m */,
 				FCF6D2FA20F4141500198038 /* AppDelegate.m */,
 				FCF6D2FF20F4141500198038 /* Main.storyboard */,
+				FC3C0D7F20F6A6E70082AF55 /* ProfileCollectionViewCell.h */,
+				FC3C0D8020F6A6E70082AF55 /* ProfileCollectionViewCell.m */,
+				FC3C0D7720F5CF320082AF55 /* ProfileViewController.h */,
+				FC3C0D7820F5CF320082AF55 /* ProfileViewController.m */,
 				FC3C0D7120F52D0F0082AF55 /* PostCell.h */,
 				FC3C0D7220F52D0F0082AF55 /* PostCell.m */,
 				FCF6D30220F4141500198038 /* Assets.xcassets */,
@@ -414,7 +424,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3C0D8120F6A6E70082AF55 /* ProfileCollectionViewCell.m in Sources */,
 				FC3C0D6420F4195E0082AF55 /* LoginViewController.m in Sources */,
+				FC3C0D7920F5CF320082AF55 /* ProfileViewController.m in Sources */,
 				FC3C0D7020F5250F0082AF55 /* Post.m in Sources */,
 				FCF6D30920F4141600198038 /* main.m in Sources */,
 				FC3C0D6720F4201D0082AF55 /* FeedViewController.m in Sources */,
@@ -592,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GHFV9ZM9C;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -609,6 +622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GHFV9ZM9C;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
