@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 
 @end
 
@@ -25,6 +27,8 @@
     self.usernameLabel.text=self.post.author.username;
     self.captionLabel.text=self.post.caption;
     self.instaPic.file= self.post[@"image"];
+    self.likeButton.selected=self.post.liked;
+    //self.likeCountLabel.text=self.post.likeCountLabel.text;
     
     //Format createdAt date
     NSDate * createdAt= self.post.createdAt;
@@ -38,7 +42,6 @@
     self.timestampLabel.text=timeAgo;
     
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -38,8 +38,7 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
-    
-    self.tableView.rowHeight = 514;
+    //self.tableView.rowHeight = 514;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,9 +58,6 @@
         Post* singlePost= self.postArr[indexPath.row];
         DetailsViewController * detailsViewController=[segue destinationViewController];
         detailsViewController.post=singlePost;
-        
-        
-        
     }
     
 }

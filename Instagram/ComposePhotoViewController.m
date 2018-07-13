@@ -12,7 +12,7 @@
 @interface ComposePhotoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *chosenImage;
 @property (weak, nonatomic) IBOutlet UITextField *imageCaptionText;
-@property (weak, nonatomic) NSString * captionText;
+@property (strong, nonatomic) NSString * captionText;
 @end
 
 @implementation ComposePhotoViewController
@@ -53,7 +53,7 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
-    editedImage=[self resizeImage:editedImage withSize:CGSizeMake(350, 350)];
+   editedImage=[self resizeImage:editedImage withSize:CGSizeMake(500, 600)];
     [self.chosenImage setImage:editedImage];
 }
 

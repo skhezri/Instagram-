@@ -9,7 +9,6 @@
 #import "Post.h"
 #import "ComposePhotoViewController.h"
 
-
 @implementation Post
 
 @dynamic postID;
@@ -33,11 +32,9 @@
     newPost.caption=caption;
     newPost.likeCount=@(0);
     newPost.commentCount=@(0);
-    newPost.liked=NO;
     [newPost saveInBackgroundWithBlock: completion];
     
 }
-
 
 +(PFFile *) getPFFileFromImage: (UIImage * _Nullable) image{
     //check if the image is not nil

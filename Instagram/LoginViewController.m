@@ -12,6 +12,7 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -84,7 +85,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //Create gradient color for login page
+    UIColor * top=[UIColor colorWithRed:123.0/255.0 green:104.0/255.0 blue:230.0/255.0 alpha:1.0];
+     UIColor * bottom=[UIColor colorWithRed:196.0/255.0 green:85.0/255.0 blue:211.0/255.0 alpha:1.0];
+    
+    CAGradientLayer * gradient=[CAGradientLayer layer];
+    gradient.colors=[NSArray arrayWithObjects:(id) top.CGColor, (id) bottom.CGColor, nil];
+    gradient.frame=self.view.bounds;
+    [self.view.layer insertSublayer:gradient atIndex:0];
+    
 }
 
 - (void)didReceiveMemoryWarning {
