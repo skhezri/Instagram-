@@ -8,6 +8,7 @@
 
 #import "ComposePhotoViewController.h"
 #import "Post.h"
+#import "MBProgressHUD.h"
 
 @interface ComposePhotoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *chosenImage;
@@ -26,9 +27,11 @@
     [self presentViewController:imagePickerVC animated:YES completion:nil];
     
 }
+//Action if user taps cancel button
 - (IBAction)didTapCancelButton:(id)sender {
      [self performSegueWithIdentifier:@"cancelComposeSegue" sender:nil];
 }
+//Posts photo to feed (includes HUD progress)
 - (IBAction)didTapShareButton:(id)sender {
     self.captionText=self.imageCaptionText.text;
     [Post postUserImage:self.chosenImage.image withCaption:self.captionText withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
@@ -38,8 +41,9 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-    
+      [self loadDataFromNetwork];
     [self performSegueWithIdentifier:@"shareSegue" sender:nil];
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +61,7 @@
     [self.chosenImage setImage:editedImage];
 }
 
+//Resizes the image
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     
@@ -70,6 +75,14 @@
     
     return newImage;
 }
+
+//HUD progress method
+-(void)loadDataFromNetwork{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+}
+
 /*
 #pragma mark - Navigation
 

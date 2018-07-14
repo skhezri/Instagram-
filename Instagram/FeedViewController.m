@@ -22,6 +22,7 @@
 
 @implementation FeedViewController
 
+//Action for the logout button
 - (IBAction)logoutButton:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         [self performSegueWithIdentifier:@"logoutSegue" sender:nil];
@@ -48,7 +49,7 @@
 
 #pragma mark - Navigation
 
-//In a storyboard-based application, you will often want to do a little preparation before navigation
+//segues to the details view controller
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
@@ -75,7 +76,7 @@
     return self.postArr.count;
 }
 
-
+//Retrieves all of the posts from Parse
 -(void)fetchUserPosts{
     PFQuery * query=[PFQuery queryWithClassName:@"Post"];
     query.limit=20;

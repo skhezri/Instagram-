@@ -22,10 +22,11 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
+//Action if like button has been tapped
 - (IBAction)didTapLikeButton:(id)sender {
     if(self.post.liked==NO){
         self.post.liked=YES;
@@ -36,15 +37,15 @@
         self.likeButton.selected=YES;
         self.likeCountLabel.text=[likeNumValue stringValue];
     } else{
-       self.post.liked=NO;
-       self.likeButton.selected=NO;
+        self.post.liked=NO;
+        self.likeButton.selected=NO;
         NSInteger likeInteger=[self.post.likeCount integerValue];
         likeInteger-=1;
         NSNumber * likeNumValue=[NSNumber numberWithInteger:likeInteger];
         self.post.likeCount=likeNumValue;
         self.likeButton.selected=NO;
         self.likeCountLabel.text=[likeNumValue stringValue];
-  }
+    }
 }
 -(void)setPost:(Post *)post{
     _post=post;
@@ -53,9 +54,16 @@
     self.postedImage.image = nil;
     self.postedImage.file= post[@"image"];
     PFUser * user = PFUser.currentUser;
-    if ([post.author[@"profilePic"] isEqual:user[@"profilePic"]]){
+    if ([post.author.username isEqualToString:user.username]){
         self.profilePicture.file = user[@"profilePic"];
         [self.profilePicture loadInBackground];
+    }
+    else if(post.author[@"profilePic"]){
+        self.profilePicture.file=post.author[@"profilePic"];
+        [self.profilePicture loadInBackground];
+    } else{
+        [self.profilePicture setImage:[UIImage imageNamed:@"download-6"]];
+        
     }
     [self.postedImage loadInBackground:^(UIImage * _Nullable image, NSError * _Nullable error) {
         [self.postedImage layoutIfNeeded];

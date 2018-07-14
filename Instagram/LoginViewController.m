@@ -58,7 +58,6 @@
 
 -(void)alert: (NSString *)user checkPassword:(NSString* )password{
     UIAlertController *alert;
-    
     //assign alert variable and text based on the error
     if([self.usernameTextField.text isEqual:@""] || [self.passwordTextField.text isEqual:@""]){
         alert= [UIAlertController alertControllerWithTitle:@"Login Error" message:@"Password or Username is empty" preferredStyle:(UIAlertControllerStyleAlert)];
@@ -69,7 +68,7 @@
     
     // create a cancel action
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                                                             
+        
     }];
     // add the cancel action to the alertController
     [alert addAction:cancelAction];
@@ -88,7 +87,7 @@
     
     //Create gradient color for login page
     UIColor * top=[UIColor colorWithRed:123.0/255.0 green:104.0/255.0 blue:230.0/255.0 alpha:1.0];
-     UIColor * bottom=[UIColor colorWithRed:196.0/255.0 green:85.0/255.0 blue:211.0/255.0 alpha:1.0];
+    UIColor * bottom=[UIColor colorWithRed:196.0/255.0 green:85.0/255.0 blue:211.0/255.0 alpha:1.0];
     
     CAGradientLayer * gradient=[CAGradientLayer layer];
     gradient.colors=[NSArray arrayWithObjects:(id) top.CGColor, (id) bottom.CGColor, nil];
@@ -103,13 +102,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

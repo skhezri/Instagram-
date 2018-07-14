@@ -64,14 +64,19 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    
     if([segue.identifier isEqualToString:@"profileToDetailsSegue"]){
-        UICollectionViewCell * tappedCell =sender;
-        NSIndexPath *indexPath= [self.collectionView indexPathForCell:tappedCell];
-        Post* singlePost= self.userPicsArray[indexPath.row];
+        NSLog(@"printed");
+        ProfileCollectionViewCell * tappedCell =sender;
+        // NSIndexPath *indexPath= [self.collectionView indexPathForCell:tappedCell];
+        Post* singlePost= tappedCell.post;
         DetailsViewController * detailsViewController=[segue destinationViewController];
         detailsViewController.post=singlePost;
     }
 }
+
+//Gets the users posts 
 -(void)fetchUserPosts{
     PFQuery * query=[PFQuery queryWithClassName:@"Post"];
     query.limit=20;
@@ -79,7 +84,7 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"image"];
     [query includeKey: @"author"];
-
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray * instaPosts, NSError * error){
         if(instaPosts!=nil){
             self.userPicsArray=instaPosts;
@@ -101,6 +106,7 @@
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.userPicsArray.count;
 }
+//Changes users profile picture: opens the image picker controller
 - (IBAction)didTapChangeProfPicButton:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
@@ -122,7 +128,7 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-
+    
     // Get the image captured by the UIImagePickerController
     //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
@@ -136,7 +142,7 @@
         if(!succeeded){
             NSLog(@"%@", error.localizedDescription);
         }
-       
+        
     }];
 }
 

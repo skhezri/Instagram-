@@ -9,6 +9,7 @@
 #import "Post.h"
 #import "ComposePhotoViewController.h"
 
+//post object class
 @implementation Post
 
 @dynamic postID;

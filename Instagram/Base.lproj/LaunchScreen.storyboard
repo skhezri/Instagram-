@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2475.new-instagram-text-logo" translatesAutoresizingMaskIntoConstraints="NO" id="CH7-7a-ANz">
-                                <rect key="frame" x="45" y="246" width="284" height="100"/>
+                                <rect key="frame" x="42" y="246" width="287" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
